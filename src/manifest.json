@@ -1,30 +1,38 @@
 {
-   "background": {
-      "persistent": false,
-      "scripts": [ "background.js" ]
+    "background": {
+       "persistent": false,
+       "scripts": [ "background.js" ]
    },
-   "commands": {
-      "next": {
-         "description": "next track",
-         "suggested_key": "Alt+Shift+Period"
+    "commands": {
+       "next": {
+          "description": "next track",
+          "suggested_key": "Alt+Shift+Period"
       },
-      "play": {
-         "description": "play/pause",
-         "suggested_key": "Alt+Q"
+       "play": {
+          "description": "play/pause",
+          "suggested_key": "Alt+Q"
       },
-      "previous": {
-         "description": "previous track",
-         "suggested_key": "Alt+Shift+Comma"
+       "previous": {
+          "description": "previous track",
+          "suggested_key": "Alt+Shift+Comma"
       }
    },
-   "description": "Add hotkeys to play/pause, skip, or go to previous song on Spotify",
-   "icons": {
-      "128": "icon.png"
-   },
-   "incognito": "split",
-   
-   "manifest_version": 2,
-   "name": "Spotify Hotkeys",
-   "permissions": [ "https://player.spotify.com/*" ],
-   "version": "0.3"
+    "content_scripts": [
+       {
+	    "matches": ["https://player.spotify.com/*"],
+	    "js": [ "mycontent.js"]
+	    
+	}
+       
+   ],
+    "description": "Add hotkeys to play/pause, skip, or go to previous song on Spotify",
+    "icons": {
+	"128": "icon.png"
+    },
+    "incognito": "split",
+    
+    "manifest_version": 2,
+    "name": "Spotify Hotkeys",
+    "permissions": [ "https://player.spotify.com/*", "tabs" ],
+    "version": "0.1"
 }
