@@ -33,6 +33,6 @@
     
     "manifest_version": 2,
     "name": "Spotify Hotkeys",
-    "permissions": [ "https://player.spotify.com/*", "tabs" ],
-    "version": "0.1"
+    "permissions": [ "https://player.spotify.com/*", "https://play.spotify.com/*", "tabs" ],
+    "version": "0.2"
 }
