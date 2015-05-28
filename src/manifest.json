@@ -1,30 +1,38 @@
 {
-   "name": "Spotify Web Player Hotkeys",
-   "description": "Add keyboard shortcuts to pause, play next and previous tracks in Spotify",
-   "version": "0.2",
-   "manifest_version": 2,
-   "icons": {
-      "128": "icon.png"
+    "background": {
+       "persistent": false,
+       "scripts": [ "background.js" ]
    },
-
-   "incognito": "split",
-   "background": {
-      "persistent": false,
-      "scripts": [ "background.js" ]
-   },
-   "commands": {
-      "next": {
-         "description": "next track",
-         "suggested_key": "Alt+Shift+Period"
+    "commands": {
+       "next": {
+          "description": "next track",
+          "suggested_key": "Alt+Shift+Period"
       },
-      "play-pause": {
-         "description": "play/pause",
-         "suggested_key": "Alt+Shift+P"
+       "play": {
+          "description": "play/pause",
+          "suggested_key": "Alt+Q"
       },
-      "previous": {
-         "description": "previous track",
-         "suggested_key": "Alt+Shift+Comma"
+       "previous": {
+          "description": "previous track",
+          "suggested_key": "Alt+Shift+Comma"
       }
    },
-   "permissions": [ "https://play.spotify.com/*"  ]
+    "content_scripts": [
+       {
+	    "matches": ["https://player.spotify.com/*"],
+	    "js": [ "mycontent.js"]
+	    
+	}
+       
+   ],
+    "description": "Add hotkeys to play/pause, skip, or go to previous song on Spotify",
+    "icons": {
+	"128": "icon.png"
+    },
+    "incognito": "split",
+    
+    "manifest_version": 2,
+    "name": "Spotify Hotkeys",
+    "permissions": [ "https://player.spotify.com/*", "https://play.spotify.com/*", "tabs" ],
+    "version": "0.2"
 }
