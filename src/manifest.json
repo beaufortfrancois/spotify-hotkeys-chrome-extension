@@ -14,16 +14,25 @@
    },
    "commands": {
       "next": {
-         "description": "next track",
+         "description": "Next track",
          "suggested_key": "Alt+Shift+Period"
       },
       "play-pause": {
-         "description": "play/pause",
+         "description": "Play/pause",
          "suggested_key": "Alt+Shift+P"
       },
       "previous": {
-         "description": "previous track",
+         "description": "Previous track",
          "suggested_key": "Alt+Shift+Comma"
+      },
+      "shuffle": {
+         "description": "Shuffle"
+      },
+      "repeat": {
+         "description": "Repeat"
+      },
+      "track-add": {
+         "description": "Save track"
       }
    },
    "permissions": [ "https://play.spotify.com/*"  ]
