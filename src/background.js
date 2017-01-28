@@ -1,12 +1,19 @@
 function onCommand(command) {
-  chrome.tabs.query({url: 'https://play.spotify.com/*'}, function(tabs) {
+  chrome.tabs.query({url: 'https://open.spotify.com/*'}, function(tabs) {
 
     // Open a spotify tab if one does not exist yet.
     if (tabs.length === 0) {
-      chrome.tabs.create({url: 'https://play.spotify.com'});
+      chrome.tabs.create({url: 'https://open.spotify.com'});
     }
 
-    var code = "document.getElementById('app-player').contentDocument.getElementById('" + command + "').click()";
+    if (command == 'Play') {
+      var selector = "button[title=Play], button[title=Pause]"
+    } else {
+      var selector = "button[title$=" + command + "]"
+    }
+
+    var code = "document.querySelector('" + selector + "').click()";
+
     // Apply command on all spotify tabs.
     for (var tab of tabs) {
       chrome.tabs.executeScript(tab.id, {code: code});

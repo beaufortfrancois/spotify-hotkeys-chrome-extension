@@ -1,7 +1,7 @@
 {
    "name": "Spotify Web Player Hotkeys",
    "description": "Add keyboard shortcuts to pause, play next and previous tracks in Spotify",
-   "version": "0.3",
+   "version": "0.4",
    "manifest_version": 2,
    "icons": {
       "128": "icon.png"
@@ -13,15 +13,15 @@
       "scripts": [ "background.js" ]
    },
    "commands": {
-      "next": {
+      "Next": {
          "description": "Next track",
          "suggested_key": "Alt+Shift+Period"
       },
-      "play-pause": {
+      "Play": {
          "description": "Play/pause",
          "suggested_key": "Alt+Shift+P"
       },
-      "previous": {
+      "Previous": {
          "description": "Previous track",
          "suggested_key": "Alt+Shift+Comma"
       },
@@ -30,10 +30,7 @@
       },
       "repeat": {
          "description": "Repeat"
-      },
-      "track-add": {
-         "description": "Save track"
       }
    },
-   "permissions": [ "https://play.spotify.com/*"  ]
+   "permissions": [ "https://open.spotify.com/*"  ]
 }
