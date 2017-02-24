@@ -3,29 +3,27 @@ function onCommand(command) {
 
     // Open a spotify tab if one does not exist yet.
     if (tabs.length === 0) {
-      chrome.tabs.create({url: 'https://play.spotify.com'});
+      chrome.tabs.create({url: 'https://open.spotify.com'});
     }
 
     // Apply command on all spotify tabs.
     for (var tab of tabs) {
 
+      var code = '';
       if (tab.url.startsWith('https://play.spotify.com')) {
-        var code = "document.getElementById('app-player').contentDocument.getElementById('" + command + "').click()";
+        code = "document.getElementById('app-player').contentDocument.getElementById('" + command + "').click()";
       } else if (tab.url.startsWith('https://open.spotify.com')) {
-        var buttonClass = '';
         switch (command) {
-          case 'next': buttonClass = 'spoticon-skip-forward-24'; break;
-          case 'play-pause': buttonClass = 'btn-green'; break;
-          case 'previous': buttonClass = 'spoticon-skip-back-24'; break;
-          case 'shuffle': buttonClass = 'spoticon-shuffle-16'; break;
-          case 'repeat': buttonClass = 'spoticon-repeat-16'; break;
+          case 'next': code = 'document.querySelector(".spoticon-skip-forward-24").click()'; break;
+          case 'previous': code = 'document.querySelector(".spoticon-skip-back-24").click()'; break;
+          case 'shuffle': code = 'document.querySelector(".spoticon-shuffle-16").click()'; break;
+          case 'repeat': code = 'document.querySelector(".spoticon-repeat-16").click()'; break;
+          case 'play-pause': code = '(document.querySelector(".spoticon-play-32") || document.querySelector(".spoticon-pause-32")).click()'; break;
         }
-        if (!buttonClass.length) {
-          continue;
-        }
-        var code = "document.querySelector('." + buttonClass + "').click()";
       }
-      chrome.tabs.executeScript(tab.id, {code: code});
+      if (code.length) {
+        chrome.tabs.executeScript(tab.id, {code: code});
+      }
     }
 
     // Unload background page as soon as we're done.
