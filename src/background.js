@@ -18,6 +18,7 @@ function onCommand(command) {
           case 'previous': code = 'document.querySelector(".spoticon-skip-back-16").click()'; break;
           case 'shuffle': code = 'document.querySelector(".spoticon-shuffle-16").click()'; break;
           case 'repeat': code = 'document.querySelector(".spoticon-repeat-16").click()'; break;
+          case 'save-track': code = 'document.querySelector(".spoticon-add-16").click()'; break;
           case 'play-pause': code = '(document.querySelector(".spoticon-play-16") || document.querySelector(".spoticon-pause-16")).click()'; break;
         }
       }
