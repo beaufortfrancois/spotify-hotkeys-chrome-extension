@@ -32,10 +32,7 @@
          "description": "Repeat"
       },
       "track-add": {
-         "description": "Save track"
-      },
-      "favorite": {
-         "description": "Favorite track",
+         "description": "Save track",
          "suggested_key": "Alt+Shift+F"
       }
    },
