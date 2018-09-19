@@ -20,6 +20,7 @@ function onCommand(command) {
           case 'repeat': code = 'document.querySelector(".spoticon-repeat-16").click()'; break;
           case 'track-add': code = '(document.querySelector(".spoticon-heart-16") || document.querySelector(".spoticon-heart-active-16")).click()'; break;
           case 'play-pause': code = '(document.querySelector(".spoticon-play-16") || document.querySelector(".spoticon-pause-16")).click()'; break;
+          case 'favorite': code = '(document.querySelector(".spoticon-heart-16") || document.querySelector(".spoticon-heart-16")).click()'; break;
         }
       }
       if (code.length) {
