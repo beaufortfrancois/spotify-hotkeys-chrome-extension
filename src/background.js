@@ -9,7 +9,7 @@ function onCommand(command) {
 			if (tab.url.startsWith('https://open.spotify.com'))
 				switch (command) {
 					case 'next':
-						code = 'document.querySelector(".spoticon-skip-forward-16").click()';
+						code = 'document.querySelector("[title=\\"Next\\"]").click()';
 						break;
 					case 'previous':
 						code = 'document.querySelector("[title=\\"Previous\\"]").click()';
