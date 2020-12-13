@@ -1,40 +1,42 @@
 {
-   "name": "Spotify Web Player Hotkeys",
-   "description": "Add keyboard shortcuts to pause, play next and previous tracks in Spotify",
-   "version": "0.5.4",
-   "manifest_version": 2,
-   "icons": {
-      "128": "icon.png"
-   },
-
-   "incognito": "split",
-   "background": {
-      "persistent": false,
-      "scripts": [ "background.js" ]
-   },
-   "commands": {
-      "next": {
-         "description": "Next track",
-         "suggested_key": "Alt+Shift+Period"
-      },
-      "play-pause": {
-         "description": "Play/pause",
-         "suggested_key": "Alt+Shift+P"
-      },
-      "previous": {
-         "description": "Previous track",
-         "suggested_key": "Alt+Shift+Comma"
-      },
-      "shuffle": {
-         "description": "Shuffle"
-      },
-      "repeat": {
-         "description": "Repeat"
-      },
-      "track-add": {
-         "description": "Save track",
-         "suggested_key": "Alt+Shift+F"
-      }
-   },
-   "permissions": [ "https://open.spotify.com/*", "https://play.spotify.com/*" ]
+    "name": "Spotify Web Player Hotkeys",
+    "description": "Add keyboard shortcuts to pause, play next and previous tracks in Spotify",
+    "version": "0.5.5",
+    "manifest_version": 2,
+    "icons": {
+        "128": "icon.png"
+    },
+    "incognito": "split",
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "commands": {
+        "next": {
+            "description": "Next track",
+            "suggested_key": "Alt+Period"
+        },
+        "play-pause": {
+            "description": "Play/pause",
+            "suggested_key": "Alt+P"
+        },
+        "previous": {
+            "description": "Previous track",
+            "suggested_key": "Alt+Comma"
+        },
+        "shuffle": {
+            "description": "Shuffle"
+        },
+        "repeat": {
+            "description": "Repeat"
+        },
+        "track-add": {
+            "description": "Save track"
+        }
+    },
+    "permissions": [
+        "https://open.spotify.com/*"
+    ]
 }
