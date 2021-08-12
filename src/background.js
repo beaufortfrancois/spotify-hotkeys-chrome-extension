@@ -9,22 +9,22 @@ function onCommand(command) {
 			if (tab.url.startsWith('https://open.spotify.com')) {
 				switch (command) {
 					case 'next':
-						code = 'document.querySelector(".bf01b0d913b6bfffea0d4ffd7393c4af-scss").click()';
+						code = 'document.querySelector(".vwGw2RO2v__qDU_9c5PE").click()';
 						break;
 					case 'previous':
-						code = 'document.querySelector(".bc13c597ccee51a09ec60253c3c51c75-scss").click()';
+						code = 'document.querySelector(".vBPFl8zuUaCexgJTw8Uc").click()';
 						break;
 					case 'shuffle':
-						code = 'document.querySelector("._39234eb5c173f8b6de80ed73820b1be8-scss").click()';
+						code = 'document.querySelector(".OSNOtcFz_LbegO1zggsb").click()';
 						break;
 					case 'repeat':
-						code = 'document.querySelector(".ebfd411a126f1e7bea6133f21b4ef88e-scss").click()';
+						code = 'document.querySelector(".__1BGhJvHnvqYTPyG074").click()';
 						break;
 					case 'track-add':
-						code = 'document.querySelector("._07bed3a434fa59aa1852a431bf2e19cb-scss").click()';
+						code = 'document.querySelector(".B77TpDT6WaoYUqQxvy4Z").click()';
 						break;
 					case 'play-pause':
-						code = 'document.querySelector("._82ba3fb528bb730b297a91f46acd37a3-scss").click()';
+						code = 'document.querySelector(".gro_tSi7cwspepH0as03").click()';
 						break;
 				}
 			}
