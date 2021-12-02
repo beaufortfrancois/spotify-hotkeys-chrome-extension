@@ -9,22 +9,22 @@ function onCommand(command) {
 			if (tab.url.startsWith('https://open.spotify.com')) {
 				switch (command) {
 					case 'next':
-						code = 'document.querySelector(".nCpaRcGYhTBxygEV_tLd").click()';
+						code = 'document.querySelector(".ARtnAVxkbmzyEjniZXVO").click()';
 						break;
 					case 'previous':
-						code = 'document.querySelector(".L4O7J5ORFBAJ8bEMYXCi").click()';
+						code = 'document.querySelector(".FKTganvAaWqgK6MUhbkx").click()';
 						break;
 					case 'shuffle':
-						code = 'document.querySelector(".texVXEH7twFXjUJu9Llu").click()';
+						code = 'document.querySelector(".d4u88Fc9OM6kXh7FYYRj").click()';
 						break;
 					case 'repeat':
-						code = 'document.querySelector(".enINDdBnsAC2KVIJckWK").click()';
+						code = 'document.querySelector(".bQY5A9SJfdFiEvBMM6J5").click()';
 						break;
 					case 'track-add':
-						code = 'document.querySelector(".Abjch8ZuaahhQPisoyO3").click()';
+						code = 'document.querySelector(".Fm7C3gdh5Lsc9qSXrQwO").click()';
 						break;
 					case 'play-pause':
-						code = 'document.querySelector("._mdSS50sTvYB40RuPTE7").click()';
+						code = 'document.querySelector(".A8NeSZBojOQuVvK4l1pS").click()';
 						break;
 				}
 			}
