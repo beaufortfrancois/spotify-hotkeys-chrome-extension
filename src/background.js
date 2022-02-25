@@ -26,6 +26,9 @@ function onCommand(command) {
 					case 'play-pause':
 						code = 'document.querySelector(".A8NeSZBojOQuVvK4l1pS").click()';
 						break;
+					case 'mute-unmute':
+						code = 'document.querySelector(".volume-bar__icon-button").click()';
+						break;
 				}
 			}
 
