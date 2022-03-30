@@ -1,45 +1,51 @@
+function clickButton(selector_id) {
+	document.querySelector(selector_id).click();
+}
+
 function onCommand(command) {
 	chrome.tabs.query({url: 'https://*.spotify.com/*'}, tabs => {
 		// Open a spotify tab if one does not exist yet.
 		if (tabs.length === 0) chrome.tabs.create({url: 'https://open.spotify.com/collection/tracks'});
 
 		for (let tab of tabs) {
-			let code = '';
+			let button_id = '';
 
 			if (tab.url.startsWith('https://open.spotify.com')) {
 				switch (command) {
 					case 'next':
-						code = 'document.querySelector(".ARtnAVxkbmzyEjniZXVO").click()';
+						button_id = ".ARtnAVxkbmzyEjniZXVO";
 						break;
 					case 'previous':
-						code = 'document.querySelector(".FKTganvAaWqgK6MUhbkx").click()';
+						button_id = ".FKTganvAaWqgK6MUhbkx";
 						break;
 					case 'shuffle':
-						code = 'document.querySelector(".d4u88Fc9OM6kXh7FYYRj").click()';
+						button_id = ".d4u88Fc9OM6kXh7FYYRj";
 						break;
 					case 'repeat':
-						code = 'document.querySelector(".bQY5A9SJfdFiEvBMM6J5").click()';
+						button_id = ".bQY5A9SJfdFiEvBMM6J5";
 						break;
 					case 'track-add':
-						code = 'document.querySelector(".Fm7C3gdh5Lsc9qSXrQwO").click()';
+						button_id = ".Fm7C3gdh5Lsc9qSXrQwO";
 						break;
 					case 'play-pause':
-						code = 'document.querySelector(".A8NeSZBojOQuVvK4l1pS").click()';
+						button_id = ".A8NeSZBojOQuVvK4l1pS";
 						break;
 					case 'mute-unmute':
-						code = 'document.querySelector(".volume-bar__icon-button").click()';
+						button_id = ".volume-bar__icon-button";
 						break;
 				}
 			}
 
 			// Apply command on only 1 spotify tab.
-			if (code.length) {
-				chrome.tabs.executeScript(tab.id, {code: code});
+			if (button_id.length) {
+				chrome.scripting.executeScript({
+					target: {tabId: tab.id},
+					func: clickButton,
+					args: [button_id],
+				});
 				break;
 			}
 		}
-		// Unload background page as soon as we're done.
-		window.close();
 	});
 }
 
