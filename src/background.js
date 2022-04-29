@@ -13,22 +13,22 @@ function onCommand(command) {
 			if (tab.url.startsWith('https://open.spotify.com')) {
 				switch (command) {
 					case 'next':
-						button_id = ".ARtnAVxkbmzyEjniZXVO";
+						button_id = ".mnipjT4SLDMgwiDCEnRC";
 						break;
 					case 'previous':
-						button_id = ".FKTganvAaWqgK6MUhbkx";
+						button_id = ".fn72ari9aEmKo4JcwteT";
 						break;
 					case 'shuffle':
-						button_id = ".d4u88Fc9OM6kXh7FYYRj";
+						button_id = ".KVKoQ3u4JpKTvSSFtd6J";
 						break;
 					case 'repeat':
-						button_id = ".bQY5A9SJfdFiEvBMM6J5";
+						button_id = ".Vz6yjzttS0YlLcwrkoUR";
 						break;
 					case 'track-add':
 						button_id = ".Fm7C3gdh5Lsc9qSXrQwO";
 						break;
 					case 'play-pause':
-						button_id = ".A8NeSZBojOQuVvK4l1pS";
+						button_id = ".vnCew8qzJq3cVGlYFXRI";
 						break;
 					case 'mute-unmute':
 						button_id = ".volume-bar__icon-button";
