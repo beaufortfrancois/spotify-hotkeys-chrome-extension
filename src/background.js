@@ -31,7 +31,7 @@ function onCommand(command) {
 						button_id = ".vnCew8qzJq3cVGlYFXRI";
 						break;
 					case 'mute-unmute':
-						button_id = ".volume-bar__icon-button";
+						button_id = ".FZhaXNtbN3Crwrgd0TA7";
 						break;
 				}
 			}
