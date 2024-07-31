@@ -1,35 +1,52 @@
+function clickButton(selector_id) {
+	document.querySelector(selector_id).click();
+}
+
 function onCommand(command) {
-  chrome.tabs.query({url: 'https://*.spotify.com/*'}, function(tabs) {
+	chrome.tabs.query({url: 'https://*.spotify.com/*'}, tabs => {
+		// Open a spotify tab if one does not exist yet.
+		if (tabs.length === 0) chrome.tabs.create({url: 'https://open.spotify.com/collection/tracks'});
 
-    // Open a spotify tab if one does not exist yet.
-    if (tabs.length === 0) {
-      chrome.tabs.create({url: 'https://open.spotify.com'});
-    }
+		for (let tab of tabs) {
+			let filter = '';
 
-    // Apply command on all spotify tabs.
-    for (var tab of tabs) {
+			if (tab.url.startsWith('https://open.spotify.com')) {
+				switch (command) {
+					case 'next':
+						filter = 'button[data-testid="control-button-skip-forward"]';
+						break;
+					case 'previous':
+						filter = 'button[data-testid="control-button-skip-back"]';
+						break;
+					case 'shuffle':
+						filter = 'button[data-testid="control-button-shuffle"]';
+						break;
+					case 'repeat':
+						filter = 'button[data-testid="control-button-repeat"]';
+						break;
+					case 'track-add':
+						filter = 'button[class="Button-sc-1dqy6lx-0 gqhkFI"]';
+						break;
+					case 'play-pause':
+						filter = 'button[data-testid="control-button-playpause"]';
+						break;
+					case 'mute-unmute':
+						filter = 'button[data-testid="volume-bar-toggle-mute-button"]';
+						break;
+				}
+			}
 
-      var code = '';
-      if (tab.url.startsWith('https://play.spotify.com')) {
-        code = "document.getElementById('app-player').contentDocument.getElementById('" + command + "').click()";
-      } else if (tab.url.startsWith('https://open.spotify.com')) {
-        switch (command) {
-          case 'next': code = 'document.querySelector(".spoticon-skip-forward-16").click()'; break;
-          case 'previous': code = 'document.querySelector(".spoticon-skip-back-16").click()'; break;
-          case 'shuffle': code = 'document.querySelector(".spoticon-shuffle-16").click()'; break;
-          case 'repeat': code = 'document.querySelector(".spoticon-repeat-16").click()'; break;
-          case 'track-add': code = '(document.querySelector(".spoticon-heart-16") || document.querySelector(".spoticon-heart-active-16")).click()'; break;
-          case 'play-pause': code = '(document.querySelector(".spoticon-play-16") || document.querySelector(".spoticon-pause-16")).click()'; break;
-        }
-      }
-      if (code.length) {
-        chrome.tabs.executeScript(tab.id, {code: code});
-      }
-    }
-
-    // Unload background page as soon as we're done.
-    window.close();
-  });
-};
+			// Apply command on only 1 spotify tab.
+			if (filter.length) {
+				chrome.scripting.executeScript({
+					target: {tabId: tab.id},
+					func: clickButton,
+					args: [filter],
+				});
+				break;
+			}
+		}
+	});
+}
 
 chrome.commands.onCommand.addListener(onCommand);
